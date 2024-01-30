@@ -1,3 +1,3 @@
 # HMO Manager
 
-**<ins>An application to help the manage the listings for Houses with Multiple Occupancies</ins>**
+**An application to help manage the listings of Houses with Multiple Occupancies**

@@ -9,13 +9,15 @@ describe("Not Found Page", () => {
 
   it('Should display the app name as a title', () => {
     screen.debug()
-    expect(screen.getByTestId("")).toHaveTextContent("")
+    expect(screen.getByTestId("homepageTitle")).toHaveTextContent("HMO Manager")
   });
 
-  // it('Should showcase the login form component', () => {
-  //   expect(screen.getByTestId("")).toHaveTextContent("")
-  // });
+  it('Should showcase the login form component', () => {
+    const loginForm = screen.getByTestId("loginForm");
+    expect(loginForm).toBeInTheDocument();
+  });
 
-  // should showcase an icon 
-  
+  it('Should showcase an icon/logo', () => {
+    expect(screen.getByTestId("buildingIcon")).toBeVisible
+  });
 });
