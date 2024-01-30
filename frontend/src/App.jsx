@@ -1,8 +1,10 @@
+import { Outlet } from 'react-router-dom';
+
 function App() {
   return (
-    <div>
-      <h1>HMO Manager</h1>
-    </div>
+    <>
+      <Outlet />
+    </>
   )
 }
 
