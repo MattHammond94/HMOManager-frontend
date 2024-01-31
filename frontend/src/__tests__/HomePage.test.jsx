@@ -1,10 +1,15 @@
 import { describe, it, expect, beforeEach } from "vitest";
 import { render, screen } from "@testing-library/react";
+import { MemoryRouter } from 'react-router-dom';
 import HomePage from "../pages/HomePage";
 
 describe("Not Found Page", () => {
   beforeEach(() => {
-    render(<HomePage />);
+    render(
+      <MemoryRouter>
+        <HomePage />
+      </MemoryRouter>
+    );
   });
 
   it('Should display the app name as a title', () => {
