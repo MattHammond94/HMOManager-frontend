@@ -1,5 +1,6 @@
 // Components:
 import SitesFeed from "../components/SitesFeed";
+import LogOutButton from "../components/LogOutButton";
 
 //Icons:
 import { ImMenu } from "react-icons/im";
@@ -12,6 +13,7 @@ const DashboardPage = () => {
         <ImMenu className="icon menu"/>
       </div>
       <SitesFeed />
+      <LogOutButton />
     </div>
   )
 }

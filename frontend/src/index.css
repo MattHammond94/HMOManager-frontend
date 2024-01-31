@@ -126,3 +126,35 @@ label {
 
   opacity: 0.9;
 }
+
+
+/* .logOutBtn {
+  cursor: pointer;
+} */
+
+/* .logOutBtn:hover {
+  text-decoration: underline;
+  transition: right 0.3s ease-in-out;
+} */
+
+.logOutBtn {
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.logOutBtn::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 1.5px;
+  background-color: var(--dark-blue);
+  bottom: 0;
+  left: 0;
+  transition: width 0.3s ease-in-out;
+}
+
+.logOutBtn:hover::before {
+  width: 100%;
+}
