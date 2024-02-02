@@ -18,22 +18,22 @@ const LogInForm = () => {
 
     onSubmit: async (values) => {
       console.log(values)
-      // const login = await fetch("url goes here", {
-      //   method: 'POST',
-      //   headers: {
-      //      "Content-Type": "application/json",
-      //      // OTHER HEADERS IF REQUIRED
-      //   },
-      //   //  body: JSON.strigify(values)
-      // });
+      const login = await fetch("https://localhost:7101/api/Authenticate/login", {
+        method: 'POST',
+        headers: {
+           "Content-Type": "application/json",
+           // OTHER HEADERS IF REQUIRED
+        },
+         body: JSON.stringify(values)
+      });
 
       // if login returns an error response and error message - display this
       // Check is formik auto stores an error for error responses.
       // If not can use an api error state.
   
-      // if (login) {
-      // return navigate("/dashboard");
-      // }
+      if (login) {
+      return navigate("/dashboard");
+      }
     }
   });
 
