@@ -8,12 +8,12 @@ const LogOutButton = () => {
 
     console.log('User logged out');
 
-    const logOut = await fetch("logOutEndpoint", {
-      //   method: 'POST',
-      //   headers: {
-      //      "Content-Type": "application/json",
-      //      // OTHER HEADERS IF REQUIRED
-      //   },
+    const logOut = await fetch("https://localhost:7101/api/Authenticate/logout", {
+        method: 'POST',
+        headers: {
+           "Content-Type": "application/json",
+           // OTHER HEADERS IF REQUIRED
+        },
     });
 
     if (logOut) {
