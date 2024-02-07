@@ -11,6 +11,9 @@ const SitesFeed = () => {
     { siteId: 5, name: "site5", address: "", rooms: "1" },
     { siteId: 6, name: "site6", address: "", rooms: "5" },
     { siteId: 7, name: "site7", address: "", rooms: "7" },
+    { siteId: 8, name: "site8", address: "", rooms: "7" },
+    { siteId: 9, name: "site9", address: "", rooms: "7" },
+    { siteId: 10, name: "site10", address: "", rooms: "7" },
   ]
 
   return (

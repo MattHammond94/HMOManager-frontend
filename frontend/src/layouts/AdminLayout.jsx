@@ -6,7 +6,7 @@ const AdminLayout = () => {
   return (
     <>
       <Navbar />
-      <HomeButton />
+      <HomeButton layoutType={true}/>
       <main>
         <Outlet />
       </main>

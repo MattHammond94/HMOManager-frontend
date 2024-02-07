@@ -21,6 +21,12 @@ h1 {
   user-select: none;
 }
 
+h2 {
+  font-family: var(--standard-font);
+  color: var(--lighter-blue);
+  user-select: none;
+}
+
 p {
   font-family: var(--standard-font);
   color: var(--dark-blue);
@@ -35,12 +41,12 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 20px;
   border: none;
+  border-radius: 20px;
   height: 40px;
   width: 70px;
-  cursor: pointer;
   margin: 5px;
+  cursor: pointer;
 }
 
 button:hover {
@@ -54,21 +60,14 @@ label {
 }
 
 .container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
-.homepageContainer {
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-}
-
-.homepageContainer h1 {
-  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .formTemplate {
@@ -98,7 +97,6 @@ input {
   font-size: 20px;
   border-style: solid;
   border-width: 3px;
-  /* background-color: var(--lighter-blue-green); */
   caret-color: var(--dark-blue);
   color: var(--dark-blue);
   border-color: var(--lighter-blue-green);
@@ -132,22 +130,6 @@ input[type='password'] {
   width: 35px;
 }
 
-.menuIconContainer {
-  width: fit-content;
-  height: fit-content;
-  background-color: var(--lighter-blue-green);
-  border-radius: 50%;
-  padding: 2px;
-}
-
-.iconContainer {
-  width: fit-content;
-  height: fit-content;
-  background-color: var(--lighter-blue-green);
-  border-radius: 50%;
-  padding: 15px;
-}
-
 .error {
   color: var(--error-color);
 }
@@ -155,20 +137,6 @@ input[type='password'] {
 .input-error {
   border-color: var(--error-color);
 }
-
-/* .logOutBtn:hover {
-  text-decoration: underline;
-  transition: right 0.3s ease-in-out;
-} */
-
-.logOutBtn {
-  position: relative;
-  display: inline-block;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-
 
 .disabledButton {
   cursor: not-allowed; 
@@ -193,4 +161,271 @@ input[type='password'] {
   100% {
     transform: rotate(360deg);
   }
+}
+
+
+
+
+
+/* Homepage Component  */
+
+.homepageContainer h1 {
+  margin-bottom: 20px;
+}
+
+.menuIconContainer {
+  width: fit-content;
+  height: fit-content;
+  background-color: var(--lighter-blue-green);
+  border-radius: 50%;
+  padding: 2px;
+}
+
+.iconContainer {
+  width: fit-content;
+  height: fit-content;
+  background-color: var(--lighter-blue-green);
+  border-radius: 50%;
+  padding: 15px;
+}
+
+
+
+
+
+
+
+/* === Navbar Component === */
+nav {
+  background-color: var(--dark-blue);
+  height: 100%;
+  width: 200px;
+  position: fixed;
+  left: 0px;
+  top: 0px;
+}
+
+nav a {
+  text-decoration: none;
+}
+
+nav a.active {
+  text-decoration: underline;
+  font-size: 16px;
+  font-weight: bolder;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+
+nav h1, nav a, nav p, nav .navIconContainer {
+  color: var(--lighter-blue-green);
+}
+
+.navIconContainer {
+  background-color: var(--lighter-blue-green);
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navIcon {
+  color: var(--dark-blue);
+  height: 25px;
+  width: 25px;
+}
+
+.navIcon.active {
+  color: var(--dark-blue);
+}
+
+.navbarContentContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 7px;
+  margin-bottom: 8px;
+}
+
+.navbarHeader {
+  margin-top: 15px;
+  margin-bottom: 120px;
+}
+
+.logOutBtn {
+  margin-top: 200px;
+  margin-left: 10px;
+}
+
+.logOutBtn:hover {
+  background-color: #518a96;
+}
+
+
+
+
+
+
+
+
+
+
+/* DASHBOARD PAGE  */
+
+.dashboardHeader {
+  position: fixed;
+  top: 0px;
+  left: 220px;
+  background-color: white;
+  width: 100vw;
+  z-index: -1;
+}
+
+.dashboardHeader h1 {
+  margin-top: 20px;
+  text-decoration: underline;
+}
+
+.dashboardHeader h2 {
+  margin-bottom: 10px;
+}
+
+.siteFeedContainer {
+  position: relative;
+  top: 110px;
+  left: 220px;
+  display: flex;
+  flex-wrap: wrap;
+  width: 880px;
+  padding-bottom: 50px;
+  z-index: 1;
+}
+
+.siteContainer {
+  z-index: 10;
+  width: 420px;
+  height: 300px;
+  background-color: var(--dark-blue);
+  border-radius: 25px;
+  margin: 10px;
+  cursor: pointer;
+  position: relative;
+}
+
+.siteContainer:hover {
+  opacity: 0.7;
+}
+
+.siteImgContainer {
+  height: 100%;
+  width: 60%;
+  position: absolute;
+  left: 0;
+}
+
+.siteImgContainer img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+}
+
+.siteContentContainer {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  position: absolute;
+  right: 0;
+  height: 100%;
+  width: 40%;
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+}
+
+.siteContentContainer h1, .siteContentContainer p {
+  margin-left: 10px;
+  color: var(--lighter-blue-green);
+}
+
+.siteContentContainer:last-of-type p {
+  margin-top: 5px;
+}
+
+.siteContentContainer h1 {
+  text-decoration: underline;
+  margin-top: 10px;
+  margin-bottom: 6px;
+}
+
+
+
+
+
+
+
+
+
+/* Home Button Component */
+
+.homeBtnContainer {
+  background-color: var(--lighter-blue-green);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.homeIcon {
+  width: 30px;
+  height: 30px;
+  color: var(--dark-blue);
+}
+
+.homeBtnContainer:hover {
+  background-color: var(--dark-blue);
+}
+
+.homeBtnContainer:hover .homeIcon {
+  color: var(--lighter-blue-green);
+}
+
+
+
+
+
+
+
+
+
+
+/* NOT FOUND PAGE (404)  */
+.notFoundPageContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.notFoundPageContainer h1 {
+  text-decoration: underline;
+  font-size: 45px;
+  margin-bottom: 10px;
+}
+
+.notFoundPageContainer p {
+  font-size: 25px;
+}
+
+.notFoundPageContainer div {
+  margin: 10px;
 }
