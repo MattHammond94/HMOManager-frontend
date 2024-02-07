@@ -6,6 +6,7 @@ import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } 
 // Pages:
 import HomePage from './pages/HomePage.jsx';
 import DashboardPage from './pages/DashboardPage.jsx';
+import SitePage from './pages/SitePage.jsx';
 
 // Components:
 import App from './App.jsx';
@@ -18,6 +19,7 @@ const router = createBrowserRouter(
     <Route path='/' element={<App />}>
       <Route index={true} path='/' element={<HomePage />} />
       <Route path='/dashboard' element={<DashboardPage />} />
+      <Route path='/site/:id' element={<SitePage />} />
     </Route>
   )
 );
