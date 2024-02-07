@@ -10,6 +10,7 @@ import AdminLayout from './layouts/AdminLayout.jsx';
 import HomePage from './pages/HomePage.jsx';
 import DashboardPage from './pages/DashboardPage.jsx';
 import SitePage from './pages/SitePage.jsx';
+import NotFoundPage from './pages/NotFoundPage.jsx';
 
 // Components:
 import App from './App.jsx';
@@ -36,6 +37,8 @@ const router = createBrowserRouter(
       </Route>
 
       <Route path='/site/:id' element={<SitePage />} />
+
+      <Route path='*' element={<NotFoundPage />} />
     </Route>
   )
 );
