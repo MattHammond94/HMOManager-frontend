@@ -4,7 +4,7 @@ const SitesFeed = () => {
 
   //Replace with a fetch from backend api
   const sites = [
-    { siteId: 1, name: "site1", address: "32 Jameson House", rooms: "5" },
+    { siteId: 1, name: "site1", address: "111 Sea House", rooms: "5" },
     { siteId: 2, name: "site2", address: "another address", rooms: "4" },
     { siteId: 3, name: "site3", address: "456 Ocean Avenue, Bournemouth, Dorset, BH9 7JZ", rooms: "1" },
     { siteId: 4, name: "A VERY LONG SITE NAME OK THIS IS LONG", address: "address", rooms: "3" },
