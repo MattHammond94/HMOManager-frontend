@@ -1,7 +1,10 @@
 
 const Site = () => {
+
   return (
-    <div>Site Component</div>
+    <div>
+      Site
+    </div>
   )
 }
 

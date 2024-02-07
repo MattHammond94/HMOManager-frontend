@@ -6,13 +6,10 @@ const LogOutButton = () => {
   const handleLogOut = async (e) => {
     e.preventDefault();
 
-    console.log('User logged out');
-
-    const logOut = await fetch("https://localhost:7101/api/Authenticate/logout", {
+    const logOut = await fetch("http://localhost:5037/Authenticate/logout", {
         method: 'POST',
         headers: {
-           "Content-Type": "application/json",
-           // OTHER HEADERS IF REQUIRED
+          "Content-Type": "application/json",
         },
     });
 

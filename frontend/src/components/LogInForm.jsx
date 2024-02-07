@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import Loader from "./Loader";
 
 const LogInForm = () => {
   const navigate = useNavigate();
@@ -16,28 +17,32 @@ const LogInForm = () => {
       password: Yup.string().required('Password is required')
     }),
 
-    onSubmit: async (values) => {
+    onSubmit: async (values, actions) => {
       console.log(values)
-      const login = await fetch("https://localhost:7101/api/Authenticate/login", {
+
+      const login = await fetch("http://localhost:5037/api/Authenticate/login", {
         method: 'POST',
         headers: {
-           "Content-Type": "application/json",
-           // OTHER HEADERS IF REQUIRED
+          "Content-Type": "application/json",
         },
-         body: JSON.stringify(values)
+        body: JSON.stringify(values)
       });
-
+  
       // if login returns an error response and error message - display this
       // Check is formik auto stores an error for error responses.
       // If not can use an api error state.
+
+      // console.log(login)
+
+      // if (!login) {
+      //   actions.setFieldError("api", login.error.message);
+      // }
   
       if (login) {
-      return navigate("/dashboard");
+        return navigate("/dashboard")
       }
     }
   });
-
-  console.log(form.isSubmitting)
 
   return (
     <div data-testid="loginForm" className="formTemplate loginForm">
@@ -65,7 +70,8 @@ const LogInForm = () => {
             className={ form.touched.password && form.errors.password ? "input-error" : "" }
           />
           <p data-testid="password-error" className="error">{ form.touched.password && form.errors.password ? form.errors.password : null }</p>
-          { form.isSubmitting ? <button disabled className="disabledButton">Loading</button> : <button type="submit">Log In</button> }
+          { form.isSubmitting ? <button disabled className="disabledButton"><Loader /></button> : <button type="submit">Log In</button> }
+          {/* <p data-testid="api-error" className="error">{ form.errors.api ? form.errors.api : null }</p> */}
       </form>
     </div>
   )
