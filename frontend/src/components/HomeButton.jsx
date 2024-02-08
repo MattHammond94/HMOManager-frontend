@@ -9,11 +9,11 @@ const HomeButton = ({ layoutType }) => {
   } : {};
 
   return (
-    <div className="homeBtnContainer" style={ styles }>
-      <Link to="/dashboard">
+    <Link to="/dashboard">
+      <div className="homeBtnContainer" style={ styles }>
         <IoIosHome className="homeIcon"/>
-      </Link>
-    </div>
+      </div>
+    </Link>
   )
 }
 

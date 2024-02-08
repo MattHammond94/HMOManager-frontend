@@ -78,7 +78,7 @@ const LogInForm = () => {
           />
           <p data-testid="password-error" className="error">{ form.touched.password && form.errors.password ? form.errors.password : null }</p>
           { form.isSubmitting ? <button disabled className="disabledButton"><Loader /></button> : <button type="submit">Log In</button> }
-          {/* <p data-testid="api-error" className="error">{ form.errors.api ? form.errors.api : null }</p> */}
+          <p data-testid="api-error" className="error">{ form.errors.api ? form.errors.api : null }</p>
       </form>
     </div>
   )

@@ -1,5 +1,5 @@
 import Site from "../components/Site";
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { apiUrl } from '../utils/globals.js';
 
 const SitesFeed = () => {

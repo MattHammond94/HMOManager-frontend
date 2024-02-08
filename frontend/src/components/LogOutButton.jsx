@@ -6,14 +6,18 @@ const LogOutButton = () => {
   const handleLogOut = async (e) => {
     e.preventDefault();
 
-    const logOut = await fetch("http://localhost:5037/Authenticate/logout", {
-        method: 'POST',
-        headers: {
-          "Content-Type": "application/json",
-        },
-    });
+    localStorage.removeItem("authToken");
 
-    if (logOut) {
+    // const logOut = await fetch("http://localhost:5037/Authenticate/logout", {
+    //     method: 'POST',
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //     },
+    // });
+
+    console.log(localStorage.getItem("authToken"))
+
+    if (localStorage.getItem("authToken") === null) {
       return navigate("/");
     }
   }
