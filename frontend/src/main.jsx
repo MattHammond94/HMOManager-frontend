@@ -19,6 +19,7 @@ import AddAdminForm from './components/AddAdminForm.jsx';
 import UpdateAdminForm from './components/UpdateAdminForm.jsx';
 import RemoveAdminForm from './components/RemoveAdminForm.jsx';
 import AddSiteForm from './components/AddSiteForm.jsx';
+import Calendar from './components/Calendar.jsx';
 
 // Styling: 
 import './index.css';
@@ -34,6 +35,7 @@ const router = createBrowserRouter(
         <Route path="addAdmin" element={<AddAdminForm />} />
         <Route path="updateAdmin" element={<UpdateAdminForm />} />
         <Route path="removeAdmin" element={<RemoveAdminForm />} />
+        <Route path="calendar" element={<Calendar />} />
       </Route>
 
       <Route path='/site/:id' element={<SitePage />} />
