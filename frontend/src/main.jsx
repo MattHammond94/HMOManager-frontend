@@ -20,6 +20,9 @@ import UpdateAdminForm from './components/UpdateAdminForm.jsx';
 import RemoveAdminForm from './components/RemoveAdminForm.jsx';
 import AddSiteForm from './components/AddSiteForm.jsx';
 
+// Auth:
+import Auth from './utils/Auth.jsx';
+
 // Styling: 
 import './index.css';
 
@@ -27,7 +30,8 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<App />}>
       <Route index={true} path='/' element={<HomePage />} />
-      <Route path='/dashboard' element={<AdminLayout />} >
+
+      <Route path='/dashboard' element={<Auth><AdminLayout /></Auth>} >
         <Route index element={<DashboardPage />} />
         <Route path="addNewSite" element={<AddSiteForm />} />
         <Route path="updatePassword" element={<UpdatePasswordForm />} />
@@ -36,7 +40,7 @@ const router = createBrowserRouter(
         <Route path="removeAdmin" element={<RemoveAdminForm />} />
       </Route>
 
-      <Route path='/site/:id' element={<SitePage />} />
+      <Route path='/site/:id' element={<Auth><SitePage /></Auth>} />
 
       <Route path='*' element={<NotFoundPage />} />
     </Route>
