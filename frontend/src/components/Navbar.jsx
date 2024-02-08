@@ -84,6 +84,16 @@ const Navbar = () => {
           </NavLink>
         </li>
         <li>
+          <NavLink to="/dashboard/calendar">
+            <div className="navbarContentContainer">
+              <p>Calendar</p>
+              <div className="navIconContainer">
+                <FaUserMinus className="navIcon" />
+              </div>
+            </div>
+          </NavLink>
+        </li>
+        <li>
           <LogOutButton />
         </li>
       </ul>

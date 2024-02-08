@@ -26,6 +26,7 @@ import AddRoomForm from './components/AddRoomForm.jsx';
 
 // Auth:
 import Auth from './utils/Auth.jsx';
+import Calendar from './components/Calendar.jsx';
 
 // Styling: 
 import './index.css';
@@ -42,6 +43,7 @@ const router = createBrowserRouter(
         <Route path="addAdmin" element={<AddAdminForm />} />
         <Route path="updateAdmin" element={<UpdateAdminForm />} />
         <Route path="removeAdmin" element={<RemoveAdminForm />} />
+        <Route path="calendar" element={<Calendar />} />
       </Route>
 
       <Route path='/site/:id' element={<Auth><SitePage /></Auth>}>
