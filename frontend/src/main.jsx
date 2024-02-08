@@ -24,9 +24,10 @@ import UpdateSiteForm from './components/UpdateSiteForm.jsx';
 import DeleteSiteButton from './components/DeleteSiteButton.jsx';
 import AddRoomForm from './components/AddRoomForm.jsx';
 
+import Calendar from './components/Calendar.jsx';
+
 // Auth:
 import Auth from './utils/Auth.jsx';
-import Calendar from './components/Calendar.jsx';
 
 // Styling: 
 import './index.css';
