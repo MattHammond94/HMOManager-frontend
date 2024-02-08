@@ -1,21 +1,31 @@
 import Site from "../components/Site";
+import React, { useState, useEffect } from 'react';
+import { apiUrl } from '../utils/globals.js';
 
 const SitesFeed = () => {
+  const [sites, setSites] = useState([]);
 
-  //Replace with a fetch from backend api
-  const sites = [
-    { siteId: 1, name: "site1", address: "111 Sea House", rooms: "5" },
-    { siteId: 2, name: "site2", address: "another address", rooms: "4" },
-    { siteId: 3, name: "site3", address: "456 Ocean Avenue, Bournemouth, Dorset, BH9 7JZ", rooms: "1" },
-    { siteId: 4, name: "A VERY LONG SITE NAME OK THIS IS LONG", address: "address", rooms: "3" },
-    { siteId: 5, name: "site5", address: "", rooms: "1" },
-    { siteId: 6, name: "site6", address: "", rooms: "5" },
-    { siteId: 7, name: "site7", address: "", rooms: "7" },
-    { siteId: 8, name: "site8", address: "", rooms: "7" },
-    { siteId: 9, name: "site9", address: "", rooms: "7" },
-    { siteId: 10, name: "site10", address: "", rooms: "7" },
-  ]
-
+  useEffect(() => {
+    // Retrieve the authentication token from local storage
+    const authToken = localStorage.getItem('authToken');
+  
+    // Fetch data from backend API with authentication token
+    fetch(apiUrl + 'Site', {
+      headers: {
+        'Authorization': `Bearer ${authToken}`, // Include the token in the Authorization header
+        'Content-Type': 'application/json'
+      }
+    })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Failed to fetch data');
+      }
+      return response.json();
+    })
+    .then(data => setSites(data))
+    .catch(error => console.error('Error fetching data:', error));
+  }, []);
+  
   return (
     <div className="siteFeedContainer">
       {sites && sites.map((site) => (

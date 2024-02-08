@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import Loader from "./Loader";
+import { apiUrl } from '../utils/globals.js';
 
 const LogInForm = () => {
   const navigate = useNavigate();
@@ -18,28 +19,34 @@ const LogInForm = () => {
     }),
 
     onSubmit: async (values, actions) => {
-      console.log(values)
+      console.log(values);
+    
+      try {
+        const login = await fetch(apiUrl + "api/Authenticate/login", {
+          method: 'POST',
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(values)
+        });
+    
+        if (!login.ok) {
+          // If the response is not successful (status code other than 2xx)
+          // Throw an error and handle it in the catch block
+          throw new Error('Login failed');
+        }
 
-      const login = await fetch("http://localhost:5037/api/Authenticate/login", {
-        method: 'POST',
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(values)
-      });
-  
-      // if login returns an error response and error message - display this
-      // Check is formik auto stores an error for error responses.
-      // If not can use an api error state.
-
-      // console.log(login)
-
-      // if (!login) {
-      //   actions.setFieldError("api", login.error.message);
-      // }
-  
-      if (login) {
-        return navigate("/dashboard")
+        const { token, expiration } = await login.json();
+        localStorage.setItem('authToken', token);
+    
+        // If login is successful, navigate to the dashboard
+        return navigate("/dashboard");
+      } catch (error) {
+        // Handle errors here
+        console.error('Error during login:', error);
+    
+        // Set field error or API error state as per your requirement
+        actions.setFieldError("api", "An error occurred during login. Please try again.");
       }
     }
   });
