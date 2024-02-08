@@ -74,6 +74,10 @@ label {
   padding: 15px;
   border-radius: 25px;
   box-shadow: 0 4px 8px 0 rgba(5, 72, 88, 0.3), 0 6px 20px 0 rgba(5, 72, 88, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .formTemplate form {
@@ -132,6 +136,7 @@ input[type='password'] {
 
 .error {
   color: var(--error-color);
+  text-align: center;
 }
 
 .input-error {
@@ -203,6 +208,7 @@ nav {
   position: fixed;
   left: 0px;
   top: 0px;
+  z-index: 4;
 }
 
 nav a {
@@ -275,15 +281,18 @@ nav h1, nav a, nav p, nav .navIconContainer {
 
 
 
+
+
 /* DASHBOARD PAGE  */
 
 .dashboardHeader {
   position: fixed;
   top: 0px;
-  left: 220px;
+  left: 200px;
+  padding-left: 20px;
   background-color: white;
   width: 100vw;
-  z-index: -1;
+  z-index: 2;
 }
 
 .dashboardHeader h1 {
@@ -296,9 +305,10 @@ nav h1, nav a, nav p, nav .navIconContainer {
 }
 
 .siteFeedContainer {
+  /* background-color: red; */
   position: relative;
   top: 110px;
-  left: 220px;
+  left: 240px;
   display: flex;
   flex-wrap: wrap;
   width: 880px;
@@ -307,7 +317,7 @@ nav h1, nav a, nav p, nav .navIconContainer {
 }
 
 .siteContainer {
-  z-index: 10;
+  z-index: 4;
   width: 420px;
   height: 300px;
   background-color: var(--dark-blue);
@@ -323,7 +333,7 @@ nav h1, nav a, nav p, nav .navIconContainer {
 
 .siteImgContainer {
   height: 100%;
-  width: 60%;
+  width: 58%;
   position: absolute;
   left: 0;
 }
@@ -343,7 +353,7 @@ nav h1, nav a, nav p, nav .navIconContainer {
   position: absolute;
   right: 0;
   height: 100%;
-  width: 40%;
+  width: 42%;
   border-top-right-radius: 25px;
   border-bottom-right-radius: 25px;
 }
@@ -371,6 +381,8 @@ nav h1, nav a, nav p, nav .navIconContainer {
 
 
 
+
+
 /* Home Button Component */
 
 .homeBtnContainer {
@@ -382,6 +394,7 @@ nav h1, nav a, nav p, nav .navIconContainer {
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  z-index: 5;
 }
 
 .homeIcon {
@@ -397,6 +410,8 @@ nav h1, nav a, nav p, nav .navIconContainer {
 .homeBtnContainer:hover .homeIcon {
   color: var(--lighter-blue-green);
 }
+
+
 
 
 
@@ -428,4 +443,143 @@ nav h1, nav a, nav p, nav .navIconContainer {
 
 .notFoundPageContainer div {
   margin: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+/* Site Nav Bar */
+
+.siteNav {
+  position: fixed;
+  top: 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100vw;
+  height: 100px;
+  /* background: linear-gradient(to left, rgba(255, 255, 255, 1), var(--dark-blue)); */
+  background-color: var(--dark-blue);
+}
+
+.siteNav img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  margin-right: 10px;
+  margin-left: 20px;
+}
+
+.siteNavInfo h1 {
+  color: var(--bluey-green);
+}
+
+.siteNavInfo p {
+  color: var(--lighter-blue);
+}
+
+
+
+
+
+
+.sitePageBody {
+  position: fixed;
+  top: 150px;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+/* SITE TOOLBAR COMPONENT */
+
+.siteOptionsToolbar {
+  position: relative;
+  display: flex;
+  align-self: flex-end;
+  justify-self: flex-end;
+  box-shadow: 0 4px 8px 0 rgba(5, 72, 88, 0.3), 0 6px 20px 0 rgba(5, 72, 88, 0.3);
+  border-radius: 25px;
+  height: 500px;
+  width: 400px;
+  margin-left: 40px;
+}
+
+.siteOptionsToolbar a {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: var(--lighter-blue-green);
+  border-radius: 25px;
+  height: 45%;
+  width: 45%;
+  margin: 15px;
+  text-decoration: none;
+}
+
+.siteOptionsToolbar a:hover, .siteOptionsToolbar a.active {
+  background-color: var(--dark-blue);
+}
+
+.siteOptionsToolbar a:hover .siteIcon, .siteOptionsToolbar a.active .siteIcon {
+  color: var(--lighter-blue-green);
+}
+
+.siteOptionsToolbar a:hover {
+  color: var(--lighter-blue-green);
+}
+
+.siteOptionsToolbar a:hover .siteOptionTitle, .siteOptionsToolbar a.active .siteOptionTitle {
+  color: var(--lighter-blue-green);
+}
+
+.siteOptionsToolbar a h2 {
+  text-align: center;
+  color: var(--dark-blue);
+}
+
+.siteIcon {
+  height: 40px;
+  width: 50px;
+  margin-bottom: 10px;
+  color: var(--dark-blue);
+}
+
+.siteOptionsToolbar a:nth-child(2) {
+  top: 0;
+  right: 0;
+}
+
+.siteOptionsToolbar a:nth-child(3) {
+  bottom: 0;
+  left: 0;
+}
+
+.siteOptionsToolbar a:nth-child(4) {
+  bottom: 0;
+  right: 0;
+}
+
+
+
+
+
+
+/* Rooms Feed Component: */
+
+.roomsFeedContainer {
+  background-color: red;
+  width: 400px;
+  height: 400px
 }
