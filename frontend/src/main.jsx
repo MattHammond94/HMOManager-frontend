@@ -19,6 +19,10 @@ import AddAdminForm from './components/AddAdminForm.jsx';
 import UpdateAdminForm from './components/UpdateAdminForm.jsx';
 import RemoveAdminForm from './components/RemoveAdminForm.jsx';
 import AddSiteForm from './components/AddSiteForm.jsx';
+import RoomsFeed from './components/RoomsFeed.jsx';
+import UpdateSiteForm from './components/UpdateSiteForm.jsx';
+import DeleteSiteButton from './components/DeleteSiteButton.jsx';
+import AddRoomForm from './components/AddRoomForm.jsx';
 
 // Auth:
 import Auth from './utils/Auth.jsx';
@@ -40,7 +44,13 @@ const router = createBrowserRouter(
         <Route path="removeAdmin" element={<RemoveAdminForm />} />
       </Route>
 
-      <Route path='/site/:id' element={<Auth><SitePage /></Auth>} />
+      <Route path='/site/:id' element={<Auth><SitePage /></Auth>}>
+        <Route index element={<RoomsFeed />} />
+        <Route path="/site/:id/deleteSite" element={<DeleteSiteButton />} />
+        <Route path="/site/:id/addRoomToSite" element={<AddRoomForm />} />
+        <Route path="/site/:id/updateSite" element={<UpdateSiteForm />} />
+        <Route path="/site/:id/allRooms" element={<RoomsFeed />} />
+      </Route>
 
       <Route path='*' element={<NotFoundPage />} />
     </Route>

@@ -34,8 +34,10 @@ const SitePage = () => {
     <div>
       <HomeButton layoutType={true}/>
       <SiteNavBar site={ site } />
-      <Outlet />
-      <SiteOptionsToolbar id={ id }/>
+      <div className="sitePageBody">
+        <Outlet />
+        <SiteOptionsToolbar id={ id }/>
+      </div>
     </div>
   )
 }
