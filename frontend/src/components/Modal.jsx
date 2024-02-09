@@ -13,10 +13,15 @@ const Modal = ({status, data, setStatus, contentLoading }) => {
     });
   };
 
+  const closeModal = () => {
+    
+    setStatus(false)
+  }
+
   return ReactDOM.createPortal(
     <>
       <div className="modalContainer">
-        <p className="modalCloseButton" style={{ display: contentLoading ? 'none' : 'block' }} onClick={ () => setStatus(false) }>&#215;</p>
+        <p className="modalCloseButton" style={{ display: contentLoading ? 'none' : 'block' }} onClick={ () => closeModal }>&#215;</p>
         <div className="modalContentContainer">
         <form className="formTemplate">
           {Object.keys(data).map((propertyName, index) => (

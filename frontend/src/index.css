@@ -78,6 +78,7 @@ label {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  background-color: white;
 }
 
 .formTemplate form {
@@ -679,3 +680,97 @@ nav h1, nav a, nav p, nav .navIconContainer {
   width: 400px;
   height: 400px
 }
+
+
+
+/* MODAL COMPONENT */
+.modalContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(5, 72, 88, 0.6);
+  z-index: 10;
+}
+
+.modalContentContainer {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 50px;
+  z-index: 15;
+}
+
+.modalCloseButton {
+  z-index: 20;
+  padding: 2px;
+  font-size: 40px;
+  position: fixed;
+  top: -1%;
+  right: 2%;
+  cursor: pointer;
+  color: var(--lighter-blue-green);
+}
+
+.modalCloseButton:hover {
+  color: var(--lighter-blue);
+}
+
+@media(max-width: 550px) {
+  .modalCloseButton {
+    font-size: 35px;
+  }
+}
+
+@media(max-width: 450px) {
+  .modalCloseButton {
+    color: var(--mid-purp);
+  }
+}
+
+
+
+/* Site Option Pillbar */
+
+.siteOptionsPillbar {
+  background-color: red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 100px;
+  position: absolute;
+  left: 250px;
+  top: 40px
+}
+
+.siteOptionsPillbar button {
+  height: 80px;
+  width: 70px;
+  border-radius: 25px;
+}
+
+.siteOptionsPillbar p {
+  font-size: 12px;
+}
+
+.siteOptionsPillbar button:hover .pillTitle {
+  color: var(--lighter-blue-green);
+}
+
+.pillIcon {
+  height: 30px;
+  width: 30px;
+}
+
+
+
+
+
+
+
+
+
+

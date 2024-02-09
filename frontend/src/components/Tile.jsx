@@ -1,37 +1,37 @@
-const Tile = ({ data }) => {
+import Modal from "./Modal";
+import { useState } from "react";
+import SiteTile from "./SiteTile";
+import RoomTile from "./RoomTile";
 
-
+const Tile = ({ data, editMode, setEditMode }) => {
+  const [modalOpenStatus, setModalOpenStatus] = useState(false);
 
   return (
-    <div>
-      <a href={`/site/${data.siteId}`}>
-        <div className="siteContainer">
-          {data.address ?  
-            <div>
-              <div className="siteImgContainer">
-                <img src="/stock-image.jpg" alt="stock-image" />
-              </div>
-              <div className="siteContentContainer">
-                <h1>{ data.name }</h1>
-                <p>{ data.address }</p>
-              </div>
-            </div> : 
-            <div>
-              <div className="siteContentContainer">
-                <h1>{ data.name }</h1>
-                <p>{ data.isOccupied }</p>
-                <p>{ data.movedInDate }</p>
-                <p>{ data.contractEndDate }</p>
-                <p>{ data.rentFrequency }</p>
-                <p>{ data.rentAmount }</p>
-              </div>
-            </div>
-          }
+    <>
+    {editMode ? (
+        <div onClick={() => setModalOpenStatus(true)} className="siteContainer">
+          <SiteTile data={data} />
         </div>
-      </a>
-    </div>
+      ) : (
+        <div className="siteContainer">
+          <a href={`/site/${data.siteId}`}>
+            <SiteTile data={data}/>
+          </a>
+        </div>
+      )}
+        {/* {data.roomId ? (
+          <a href={`/site/${data.siteId}`}>
+            <RoomTile data={data} />
+          </a>
+        ) : (
+          <div onClick={() => setModalOpenStatus(true)} className="siteContainer">
+            <RoomTile data={data} />
+          </div>
+        )} */}
+      <Modal status={modalOpenStatus} data={data} setStatus={setModalOpenStatus} >
+      </Modal>
+    </>
+  );
+};
 
-  )
-}
-
-export default Tile
+export default Tile;

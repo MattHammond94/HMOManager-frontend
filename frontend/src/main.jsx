@@ -19,7 +19,6 @@ import UpdatePasswordForm from './components/UpdatePasswordForm.jsx';
 import UpdateAdminForm from './components/UpdateAdminForm.jsx';
 import RemoveAdminForm from './components/RemoveAdminForm.jsx';
 import AddSiteForm from './components/AddSiteForm.jsx';
-import RoomsFeed from './components/RoomsFeed.jsx';
 import UpdateSiteForm from './components/UpdateSiteForm.jsx';
 import DeleteSiteButton from './components/DeleteSiteButton.jsx';
 import AddRoomForm from './components/AddRoomForm.jsx';
@@ -53,7 +52,6 @@ const router = createBrowserRouter(
         <Route path="/site/:id/deleteSite" element={<DeleteSiteButton />} />
         <Route path="/site/:id/addRoomToSite" element={<AddRoomForm />} />
         <Route path="/site/:id/updateSite" element={<UpdateSiteForm />} />
-        <Route path="/site/:id/allRooms" element={<RoomsFeed />} />
       </Route>
 
       <Route path='*' element={<NotFoundPage />} />
