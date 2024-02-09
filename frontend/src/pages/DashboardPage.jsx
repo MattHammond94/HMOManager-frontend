@@ -1,5 +1,5 @@
 // Components:
-import SitesFeed from "../components/SitesFeed";
+import Feed from "../components/Feed";
 import Navbar from "../components/Navbar";
 
 const DashboardPage = () => {
@@ -10,7 +10,7 @@ const DashboardPage = () => {
         <h1>HMO Manager Dashboard</h1>
         <h2>Current Sites:</h2>
       </div>
-      <SitesFeed />
+      <Feed type="Site" />
     </>
   )
 }

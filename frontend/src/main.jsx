@@ -15,7 +15,7 @@ import NotFoundPage from './pages/NotFoundPage.jsx';
 // Components:
 import App from './App.jsx';
 import UpdatePasswordForm from './components/UpdatePasswordForm.jsx';
-import AddAdminForm from './components/AddAdminForm.jsx';
+// import AddAdminForm from './components/AddAdminForm.jsx';
 import UpdateAdminForm from './components/UpdateAdminForm.jsx';
 import RemoveAdminForm from './components/RemoveAdminForm.jsx';
 import AddSiteForm from './components/AddSiteForm.jsx';
@@ -23,6 +23,7 @@ import RoomsFeed from './components/RoomsFeed.jsx';
 import UpdateSiteForm from './components/UpdateSiteForm.jsx';
 import DeleteSiteButton from './components/DeleteSiteButton.jsx';
 import AddRoomForm from './components/AddRoomForm.jsx';
+import Feed from './components/Feed.jsx';
 
 import Calendar from './components/Calendar.jsx';
 
@@ -41,14 +42,14 @@ const router = createBrowserRouter(
         <Route index element={<DashboardPage />} />
         <Route path="addNewSite" element={<AddSiteForm />} />
         <Route path="updatePassword" element={<UpdatePasswordForm />} />
-        <Route path="addAdmin" element={<AddAdminForm />} />
+        <Route path="addAdmin" element={<Feed type="Room" />} />
         <Route path="updateAdmin" element={<UpdateAdminForm />} />
         <Route path="removeAdmin" element={<RemoveAdminForm />} />
         <Route path="calendar" element={<Calendar />} />
       </Route>
 
       <Route path='/site/:id' element={<Auth><SitePage /></Auth>}>
-        <Route index element={<RoomsFeed />} />
+        <Route index element={<Feed type="Room" />} />
         <Route path="/site/:id/deleteSite" element={<DeleteSiteButton />} />
         <Route path="/site/:id/addRoomToSite" element={<AddRoomForm />} />
         <Route path="/site/:id/updateSite" element={<UpdateSiteForm />} />
