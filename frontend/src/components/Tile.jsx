@@ -6,6 +6,10 @@ import RoomTile from "./RoomTile";
 const Tile = ({ data, editMode, setEditMode }) => {
   const [modalOpenStatus, setModalOpenStatus] = useState(false);
 
+  console.log(data)
+
+  // if staement here
+
   return (
     <>
     {editMode ? (

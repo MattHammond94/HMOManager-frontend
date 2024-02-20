@@ -9,7 +9,7 @@ import AdminLayout from './layouts/AdminLayout.jsx';
 // Pages:
 import HomePage from './pages/HomePage.jsx';
 import DashboardPage from './pages/DashboardPage.jsx';
-import SitePage from './pages/SitePage.jsx';
+import EntityPage from './pages/EntityPage.jsx';
 import NotFoundPage from './pages/NotFoundPage.jsx';
 
 // Components:
@@ -38,7 +38,7 @@ const router = createBrowserRouter(
       <Route index={true} path='/' element={<HomePage />} />
 
       <Route path='/dashboard' element={<Auth><AdminLayout /></Auth>} >
-        <Route index element={<DashboardPage />} />
+        <Route index element={<EntityPage type="Site" />} />
         <Route path="addNewSite" element={<AddSiteForm />} />
         <Route path="updatePassword" element={<UpdatePasswordForm />} />
         <Route path="addAdmin" element={<Feed type="Room" />} />
@@ -47,11 +47,15 @@ const router = createBrowserRouter(
         <Route path="calendar" element={<Calendar />} />
       </Route>
 
-      <Route path='/site/:id' element={<Auth><SitePage /></Auth>}>
-        <Route index element={<Feed type="Room" />} />
+      <Route path='/site/:id' element={<Auth><EntityPage /></Auth>}>
+        <Route index element={<EntityPage type="Room" />} />
         <Route path="/site/:id/deleteSite" element={<DeleteSiteButton />} />
         <Route path="/site/:id/addRoomToSite" element={<AddRoomForm />} />
         <Route path="/site/:id/updateSite" element={<UpdateSiteForm />} />
+      </Route>
+
+      <Route path='/room/:id' element={<Auth><EntityPage /></Auth>}>
+        <Route index element={<EntityPage type="Tenant" />} />
       </Route>
 
       <Route path='*' element={<NotFoundPage />} />
